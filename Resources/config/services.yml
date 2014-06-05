@@ -1,0 +1,4 @@
+services:
+    ct.manager.user:
+        class: CelciusTech\CoreBundle\Manager\UserManager
+        arguments: [@service_container]

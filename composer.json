@@ -1,0 +1,36 @@
+{
+    "name" : "celciustech/core-bundle",
+    "description" : "Collection of usefull things used in CelciusTech's projects",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "Welly",
+        "email" : "welly@celciustech.net"
+    }],
+    "keywords" : [
+        "CoreBundle"
+    ],
+    "license" : [
+        "MIT"
+    ],
+    "require" : {
+        "php": ">=5.3.3",
+        "symfony/symfony": ">= 2.3.*",
+        "doctrine/doctrine-migrations-bundle": "dev-master",
+        "doctrine/doctrine-fixtures-bundle": "2.2.*",
+        "white-october/pagerfanta-bundle": "dev-master",
+        "fzaninotto/faker": "dev-master"
+    },
+    "autoload" : {
+        "psr-0" : {
+            "CelciusTech\\CoreBundle" : ""
+        }
+    },
+    "target-dir" : "CelciusTech/CoreBundle",
+    "repositories" : [{
+    ],
+    "extra" : {
+    "branch-alias" : {
+            "dev-master" : "2.5-dev"
+        }
+    }
+}

@@ -1,6 +1,6 @@
 <?php
 
-namespace CelciusTech\CoreBundle\DataFixtures\ORM;
+namespace CelciusTech\CoreBundle\DataFixtures;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;

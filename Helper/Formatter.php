@@ -13,7 +13,7 @@ class Formatter
      *
      * @return string truncated text
      */
-    public function more($text, $len)
+    static public function more($text, $len)
     {
         $text = strip_tags($text);
 
@@ -37,7 +37,7 @@ class Formatter
      *
      * @return string formated
      */
-    public function ago(\DateTime $date)
+    static public function ago(\DateTime $date)
     {
         $time = $date->getTimestamp();
         $periods = array('second', 'minute', 'hour', 'day', 'week', 'month', 'year', 'decade');

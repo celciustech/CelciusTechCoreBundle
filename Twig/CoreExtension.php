@@ -5,7 +5,7 @@ namespace CelciusTech\CoreBundle\Twig;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use CelciusTech\CoreBundle\Helper\Formatter;
 
-class AppExtension extends \Twig_Extension
+class CoreExtension extends \Twig_Extension
 {
     private $container;
 

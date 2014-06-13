@@ -78,11 +78,16 @@ class Formatter
      *
      * @param float $number
      * @param string $curreny
+     * @param boolean $prefix true if prefix, false if suffix
      *
      * @return string formatted number
      */
-    static public function money($number, $currency = 'Rp')
+    static public function money($number, $currency = 'Rp', $prefix = true)
     {
-        return $currency.number_format($number, 2, ',', '.');
+        if ($prefix) {
+            return $currency.number_format($number, 2, ',', '.');
+        }
+
+        return number_format($number, 2, ',', '.').$currency;
     }
 }

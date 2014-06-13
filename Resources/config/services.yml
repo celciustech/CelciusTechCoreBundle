@@ -2,3 +2,9 @@ services:
     ct.manager.user:
         class: CelciusTech\CoreBundle\Manager\UserManager
         arguments: [@service_container]
+
+    ct.twig.core_extension:
+        class: CelciusTech\CoreBundle\Twig\CoreExtension
+        arguments: [@service_container]
+        tags:
+            - { name: twig.extension }

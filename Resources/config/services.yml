@@ -8,3 +8,13 @@ services:
         arguments: [@service_container]
         tags:
             - { name: twig.extension }
+
+    ct.form.transformer.html_purifier:
+        class: Exercise\HTMLPurifierBundle\Form\HTMLPurifierTransformer
+        arguments: [@exercise_html_purifier.default]
+
+    ct.form.type.purified_textarea:
+        class: CelciusTech\CoreBundle\Form\Type\PurifiedTextareaType
+        arguments: [ct.form.transformer.html_purifier]
+        tags:
+          - { name: form.type, alias: purified_textarea }

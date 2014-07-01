@@ -18,6 +18,7 @@
         "doctrine/doctrine-migrations-bundle": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
         "pagerfanta/pagerfanta": "1.0.*",
+        "exercise/htmlpurifier-bundle": "dev-master",
         "fzaninotto/faker": "dev-master"
     },
     "autoload" : {

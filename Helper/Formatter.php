@@ -90,4 +90,50 @@ class Formatter
 
         return number_format($number, 2, ',', '.').$currency;
     }
+
+    /**
+     * Format percent
+     *
+     * @param string
+     * @return string
+     */
+    static public function percent($percent, $symbol = '%')
+    {
+        if ($percent <= 0) {
+            $value = 0;    
+        } else {
+            $value = trim(rtrim($percent, '0'), '.');
+        }
+
+        if ($symbol) {
+            $value = $value.$symbol;
+        }
+
+        return $value;
+    }
+
+    /**
+     * Remove non digit characters
+     *
+     * @param string $str
+     * @return string 
+     */
+    static public function removeNonDigit($str)
+    {
+        if (strpos($str, ',') !== false) {
+            // remove trailing zeros
+            $str = rtrim($str, '0'); 
+            if ($str[count($str) - 1] == ',') {
+                // remove comma if last character
+                $str = rtrim($str, ',');
+            }
+        }
+
+        // remove non digit and non comma
+        $str = preg_replace('/[^0-9\,]/', '', $str);
+        // replace comma with dot
+        $str = str_replace(',', '.', $str);
+
+        return $str;
+    }
 }

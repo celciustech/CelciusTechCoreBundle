@@ -79,16 +79,18 @@ class Formatter
      * @param float $number
      * @param string $curreny
      * @param boolean $prefix true if prefix, false if suffix
+     * @param string $locale
      *
      * @return string formatted number
      */
-    static public function money($number, $currency = 'Rp', $prefix = true)
+    static public function money($number, $currency = 'Rp', $prefix = true, $locale = 'id')
     {
+        $numberFormatter = new \NumberFormatter($locale, \NumberFormatter::DECIMAL);
         if ($prefix) {
-            return $currency.number_format($number, 2, ',', '.');
+            return $currency.$numberFormatter->format($number);
         }
 
-        return number_format($number, 2, ',', '.').$currency;
+        return $numberFormatter->format($number).$currency;
     }
 
     /**

@@ -35,12 +35,13 @@ class CoreExtension extends \Twig_Extension
      * @param float $number
      * @param string $curreny
      * @param boolean $prefix true if prefix, false if suffix
+     * @param string $locale
      *
      * @return string formatted number
      */
-    public function money($number, $currency = 'Rp', $prefix = true)
+    public function money($number, $currency = 'Rp', $prefix = true, $locale ='id')
     {
-        return Formatter::money($number, $currency, $prefix);
+        return Formatter::money($number, $currency, $prefix, $locale);
     }
 
     /**

@@ -8,10 +8,12 @@ use CelciusTech\CoreBundle\Helper\Formatter;
 class CoreExtension extends \Twig_Extension
 {
     private $container;
+    private $request;
 
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
+        $this->request = $this->container->get('request');
     }
 
     public function getFunctions()
@@ -39,8 +41,12 @@ class CoreExtension extends \Twig_Extension
      *
      * @return string formatted number
      */
-    public function money($number, $currency = 'Rp', $prefix = true, $locale ='id')
+    public function money($number, $currency = 'Rp', $prefix = true, $locale = null)
     {
+        if (is_null($locale)) {
+            $locale = $this->request->getLocale();
+        }
+
         return Formatter::money($number, $currency, $prefix, $locale);
     }
 

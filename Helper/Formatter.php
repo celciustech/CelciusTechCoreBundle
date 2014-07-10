@@ -122,6 +122,12 @@ class Formatter
      */
     static public function removeNonDigit($str)
     {
+        if (count($str) <= 0) return $str;
+
+        $negative = false;
+        if ($str[0] == '-') {
+            $negative = true;
+        }
         if (strpos($str, ',') !== false) {
             // remove trailing zeros
             $str = rtrim($str, '0'); 
@@ -135,6 +141,10 @@ class Formatter
         $str = preg_replace('/[^0-9\,]/', '', $str);
         // replace comma with dot
         $str = str_replace(',', '.', $str);
+
+        if ($negative) {
+            $str = '-'.$str;
+        }
 
         return $str;
     }

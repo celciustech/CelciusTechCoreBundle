@@ -8,12 +8,10 @@ use CelciusTech\CoreBundle\Helper\Formatter;
 class CoreExtension extends \Twig_Extension
 {
     private $container;
-    private $request;
 
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
-        $this->request = $this->container->get('request');
     }
 
     public function getFunctions()

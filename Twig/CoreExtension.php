@@ -42,7 +42,7 @@ class CoreExtension extends \Twig_Extension
     public function money($number, $currency = 'Rp', $prefix = true, $locale = null)
     {
         if (is_null($locale)) {
-            $locale = $this->request->getLocale();
+            $locale = $this->container->get('request')->getLocale();
         }
 
         return Formatter::money($number, $currency, $prefix, $locale);

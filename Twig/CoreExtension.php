@@ -21,6 +21,7 @@ class CoreExtension extends \Twig_Extension
             'money' => new \Twig_Function_Method($this, 'money'),
             'percent' => new \Twig_Function_Method($this, 'percent'),
             'more' => new \Twig_Function_Method($this, 'more', array('is_safe' => array('html'))),
+            'ago' => new \Twig_Function_Method($this, 'ago'),
         );
     }
 
@@ -72,6 +73,19 @@ class CoreExtension extends \Twig_Extension
     public function more($text, $len = 200)
     {
         return Formatter::more($text, $len);
+    }
+
+    /**
+     * @link http://css-tricks.com/snippets/php/time-ago-function/
+     * Return time in ago format
+     *
+     * @param Datetime
+     *
+     * @return string formated
+     */
+    public function ago(\DateTime $date)
+    {
+        return Formatter::ago($date);
     }
 
     public function getName()

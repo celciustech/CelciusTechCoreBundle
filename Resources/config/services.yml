@@ -18,3 +18,9 @@ services:
         arguments: [@ct.form.transformer.html_purifier]
         tags:
           - { name: form.type, alias: purified_textarea }
+
+    ct.form.type.purified_text:
+        class: CelciusTech\CoreBundle\Form\Type\PurifiedTextType
+        arguments: [@ct.form.transformer.html_purifier]
+        tags:
+          - { name: form.type, alias: purified_text }

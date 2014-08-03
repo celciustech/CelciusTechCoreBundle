@@ -15,6 +15,6 @@ services:
 
     ct.form.type.purified_textarea:
         class: CelciusTech\CoreBundle\Form\Type\PurifiedTextareaType
-        arguments: [ct.form.transformer.html_purifier]
+        arguments: [@ct.form.transformer.html_purifier]
         tags:
           - { name: form.type, alias: purified_textarea }

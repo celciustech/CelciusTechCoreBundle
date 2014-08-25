@@ -24,3 +24,9 @@ services:
         arguments: [@ct.form.transformer.html_purifier]
         tags:
           - { name: form.type, alias: purified_text }
+
+    ct.form.type.extended_entity:
+        class: CelciusTech\CoreBundle\Form\Type\ExtendedEntityType
+        arguments: [@property_accessor]
+        tags:
+            - { name: form.type, alias: extended_entity }

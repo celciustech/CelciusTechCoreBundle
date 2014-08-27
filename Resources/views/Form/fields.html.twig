@@ -12,3 +12,9 @@
     {% endfor %}
 {% endspaceless %}
 {% endblock choice_widget_options %}
+
+{% block radio_widget %}
+    {% spaceless %}
+        <input type="radio" {% for attrname, attrvalue in choice.attr|default({}) if attrvalue is not empty %}{{ attrname }}="{{ attrvalue }}" {% endfor %} {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+    {% endspaceless %}
+{% endblock radio_widget %}

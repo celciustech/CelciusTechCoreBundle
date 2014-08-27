@@ -42,6 +42,19 @@ class ExtendedEntityType extends AbstractType
 
             $choice->attr = array_replace(isset($choice->attr) ? $choice->attr : array(), $additionalAttributes);
         }
+
+        if ($options['expanded']) {
+            foreach ($view as $childView) {
+                $additionalAttributes = array();
+                foreach ($options['option_attributes'] as $attributeName => $choicePath) {
+                    $entityID = $childView->vars['value'];
+                    $entity = $view->vars['choices'][$entityID]->data;
+                    $additionalAttributes[$attributeName] = $this->propertyAccessor->getValue($entity, $choicePath);
+                }
+
+                $childView->vars['attr'] = array_replace(isset($childView->attr) ? $childView->attr : array(), $additionalAttributes);
+            }
+        }
     }
 
     /**

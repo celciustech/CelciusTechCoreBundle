@@ -85,12 +85,17 @@ class Formatter
      */
     static public function money($number, $currency = 'Rp', $prefix = true, $locale = 'id')
     {
+        $sign = '';
+        if ($number < 0) {
+            $number = abs($number);
+            $sign = '- ';
+        }
         $numberFormatter = new \NumberFormatter($locale, \NumberFormatter::DECIMAL);
         if ($prefix) {
-            return $currency.$numberFormatter->format($number);
+            return $sign.$currency.$numberFormatter->format($number);
         }
 
-        return $numberFormatter->format($number).$currency;
+        return $sign.$numberFormatter->format($number).$currency;
     }
 
     /**

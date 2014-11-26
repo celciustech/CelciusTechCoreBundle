@@ -21,23 +21,26 @@ class Controller extends BaseController
     /**
      * Get doctrine manager
      *
+     * @param string connection
+     *
      * @return EntityManager
      */
-    public function getManager()
+    public function getManager($connection = 'default')
     {
-        return $this->getDoctrine()->getManager();
+        return $this->getDoctrine()->getManager($connection);
     }
 
     /**
      * Get repository
      *
      * @param string repository name (BundleName:RepoName)
+     * @param string connection
      *
      * @return EntityRepository
      */
-    public function getRepository($repo)
+    public function getRepository($repo, $connection = 'default')
     {
-        return $this->getManager()->getRepository($repo);
+        return $this->getManager($connection)->getRepository($repo);
     }
 
     /**

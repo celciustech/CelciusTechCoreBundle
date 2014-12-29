@@ -22,6 +22,7 @@ class CoreExtension extends \Twig_Extension
             'percent' => new \Twig_Function_Method($this, 'percent'),
             'more' => new \Twig_Function_Method($this, 'more', array('is_safe' => array('html'))),
             'ago' => new \Twig_Function_Method($this, 'ago'),
+            'terbilang' => new \Twig_Function_Method($this, 'terbilang'),
         );
     }
 
@@ -73,6 +74,18 @@ class CoreExtension extends \Twig_Extension
     public function more($text, $len = 200)
     {
         return Formatter::more($text, $len);
+    }
+
+    /**
+     * Mengubah angka menjadi kata-kata
+     *
+     * @param int $angka
+     *
+     * @return string
+     */
+    public function terbilang($angka)
+    {
+        return Formatter::terbilang($angka);
     }
 
     /**

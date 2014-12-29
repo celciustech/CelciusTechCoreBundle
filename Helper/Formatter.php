@@ -165,22 +165,22 @@ class Formatter
 	   if ($angka < 12)
 	     return ' ' . $abil[$angka] ;
 	   elseif ($angka < 20)
-	     return terbilang($angka - 10) . ' belas';
+	     return self::terbilang($angka - 10) . ' belas';
 	   elseif ($angka < 100)
-	     return terbilang($angka / 10) . ' puluh' . terbilang(fmod($angka,10));
+	     return self::terbilang($angka / 10) . ' puluh' . self::terbilang(fmod($angka,10));
 	   elseif ($angka < 200)
-	     return ' seratus' . terbilang($angka - 100);
+	     return ' seratus' . self::terbilang($angka - 100);
 	   elseif ($angka < 1000)
-	     return terbilang($angka / 100) . ' ratus' . terbilang(fmod($angka,100));
+	     return self::terbilang($angka / 100) . ' ratus' . self::terbilang(fmod($angka,100));
 	   elseif ($angka < 2000)
-	     return ' seribu' . terbilang($angka - 1000);
+	     return ' seribu' . self::terbilang($angka - 1000);
 	   elseif ($angka < 1000000)
-	     return terbilang($angka / 1000) . ' ribu' . terbilang(fmod($angka,1000));
+	     return self::terbilang($angka / 1000) . ' ribu' . self::terbilang(fmod($angka,1000));
 	   elseif ($angka < 1000000000)
-	     return terbilang($angka / 1000000) . ' juta' . terbilang(fmod($angka,1000000));
+	     return self::terbilang($angka / 1000000) . ' juta' . self::terbilang(fmod($angka,1000000));
 	   elseif ($angka < 1000000000000)
-	     return terbilang($angka / 1000000000) . ' milyar' . terbilang(fmod($angka,1000000000));
+	     return self::terbilang($angka / 1000000000) . ' milyar' . self::terbilang(fmod($angka,1000000000));
 	   elseif ($angka < 1000000000000000)
-	     return terbilang($angka / 1000000000000) . ' trilyun' . terbilang(fmod($angka,1000000000000));
+	     return self::terbilang($angka / 1000000000000) . ' trilyun' . self::terbilang(fmod($angka,1000000000000));
 	}
 }

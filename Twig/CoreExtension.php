@@ -113,7 +113,7 @@ class CoreExtension extends \Twig_Extension
      */
     public function accountingFormat($number, $numberDelimiter = '.', $decimalDelimiter = ',')
     {
-        return Formatter::accountingFormat($date);
+        return Formatter::accountingFormat($number, $numberDelimiter, $decimalDelimiter);
     }
 
     public function getName()

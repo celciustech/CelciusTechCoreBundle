@@ -183,4 +183,22 @@ class Formatter
 	   elseif ($angka < 1000000000000000)
 	     return self::terbilang($angka / 1000000000000) . ' trilyun' . self::terbilang(fmod($angka,1000000000000));
 	}
+
+    /**
+     * Convert number to accounting format
+     *
+     * @param int $number
+     * @param string $numberDelimiter
+     * @param string $decimalDelimiter
+     *
+     * @return string
+     */
+    static public function accountingFormat($number, $numberDelimiter = '.', $decimalDelimiter = ',')
+    {
+        if ($number == 0) return '-';
+
+        if ($number < 0) return sprintf('(%s)', number_format(abs($number), 2, $decimalDelimiter, $numberDelimiter));
+
+        return number_format($number, 2, $decimalDelimiter, $numberDelimiter);
+    }
 }

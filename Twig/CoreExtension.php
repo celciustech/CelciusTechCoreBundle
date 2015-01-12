@@ -23,6 +23,7 @@ class CoreExtension extends \Twig_Extension
             'more' => new \Twig_Function_Method($this, 'more', array('is_safe' => array('html'))),
             'ago' => new \Twig_Function_Method($this, 'ago'),
             'terbilang' => new \Twig_Function_Method($this, 'terbilang'),
+            'accounting_format' => new \Twig_Function_Method($this, 'accountingFormat'),
         );
     }
 
@@ -99,6 +100,20 @@ class CoreExtension extends \Twig_Extension
     public function ago(\DateTime $date)
     {
         return Formatter::ago($date);
+    }
+
+    /**
+     * Convert number to accounting format
+     *
+     * @param int $number
+     * @param string $numberDelimiter
+     * @param string $decimalDelimiter
+     *
+     * @return string
+     */
+    public function accountingFormat($number, $numberDelimiter = '.', $decimalDelimiter = ',')
+    {
+        return Formatter::accountingFormat($date);
     }
 
     public function getName()

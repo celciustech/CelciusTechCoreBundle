@@ -127,6 +127,7 @@ class Formatter
      */
     static public function removeNonDigit($str)
     {
+    	$str = (string) $str;
         if (count($str) <= 0) return $str;
 
         $negative = false;
